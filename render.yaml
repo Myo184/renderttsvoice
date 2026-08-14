@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: recap-creator-studio
+    env: python
+    buildCommand: |
+      apt-get update && apt-get install -y ffmpeg
+      pip install -r requirements.txt
+    startCommand: gunicorn app:demo --bind 0.0.0.0:$PORT
